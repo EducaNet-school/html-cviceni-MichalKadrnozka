@@ -16,7 +16,7 @@ h1{
     font-size: 3vw;
     text-align: left;
     font-weight: 300;
-    padding-top: 8vh;
+    padding-top: 10vh;
     text-decoration: underline;
     text-decoration-thickness: 1px;
 }
@@ -30,17 +30,26 @@ ul{
 }
 img{
     display: inline;
-    position: fixed;
+    position: absolute;
     width: 40vw;
     height: auto;
-    top: 27%;
+    top: 30%;
     right: 10%;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 20px;
 }
+video{
+    position: relative;
+    margin-top: 35vh;
+    margin-bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 20px;
+    height: auto;
+}
 .background{
     width: 100%;
-    height: 100vh;
     background: linear-gradient(to top right, rgb(62, 62, 62) 0%, rgb(85, 85, 85), rgb(20, 20, 20) 80%);
 }
 .container{
