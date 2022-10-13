@@ -16,26 +16,30 @@
             <ul>
                 <p>Nápoje:</p>
                 <ul>
-                    <li class="strong">Pivo 12&deg(0,5l) - 35Kč</li>
-                    <li>Pivo nealko(0,5l) - 35Kč</li>
+                    <li id="img9" onclick="img9_open()" class="strong">Pivo 12&deg(0,5l) - 35Kč</li>
+                    <li id="img10" onclick="img10_open()">Pivo nealko(0,5l) - 35Kč</li>
                 </ul>
                 <p>Jídla:</p>
                 <ul>
-                    <li>Domácí guláš s kendlíkem - 149Kč</li>
-                    <li>Smažák s hranolkami - 119Kč</li>
-                    <li>Utopenec - 49Kč</li>
-                    <li>Biftek s vařeným bramborem - 139Kč</li>
-                    <li>Svíčková s knedlíkem- 119Kč</li>
-                    <li>Vepřové medailonky s bramborem - 129Kč</li>
-                    <li>Pečený pstruh s vařenou zeleninou- 109Kč</li>
-                    <li>Kuřecí řízek s kroketami - 109Kč</li>
+                    <button id="button" onclick="img_close()" class="close_button">
+                        <img class="close_icon" src="assets/close_icon.png" alt="close">
+                    </button>
+                    <li id="img1" onclick="img1_open()">Domácí guláš s kendlíkem - 149Kč</li>
+                    <li id="img2" onclick="img2_open()">Smažák s hranolkami - 119Kč</li>
+                    <li id="img3" onclick="img3_open()">Utopenec - 49Kč</li>
+                    <li id="img4" onclick="img4_open()">Biftek s vařeným bramborem - 139Kč</li>
+                    <li id="img5" onclick="img5_open()">Svíčková s knedlíkem- 119Kč</li>
+                    <li id="img6" onclick="img6_open()">Vepřové medailonky s bramborem - 129Kč</li>
+                    <li id="img7" onclick="img7_open()">Pečený pstruh s vařenou zeleninou- 109Kč</li>
+                    <li id="img8" onclick="img8_open()">Kuřecí řízek s kroketami - 109Kč</li>
                 </ul>
             </ul>
-            <img src="assets/gulas.jfif" alt="guláš">
+            <img class="img" src="assets/gulas.jfif" alt="guláš">
             <video width="1000" height="600" controls muted poster="assets/videjo_poster.png">
                 <source src="assets/videjo.mp4" type="video/mp4">
             </video>
         </div>
     </div>
+    <script src="images.js"></script>
 </body>
 </html>
