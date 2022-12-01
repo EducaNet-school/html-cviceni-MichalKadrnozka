@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    text-decoration-thickness: 1px;
+}
+h1{
+    margin: 1rem 0;
+}
+.background{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to top right, rgb(62, 62, 62) 0%, rgb(85, 85, 85), rgb(20, 20, 20) 80%);
+}
+.border1{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 17rem;
+    height: 15.8rem;
+    border-radius: 50px;
+    background-image: linear-gradient(36deg, rgb(255, 153, 0) 80%, rgb(0, 157, 255) 90%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: border1 2s infinite;
+    transition: 0.2s;
+    box-shadow: #ff7300 0px 0px 10px;
+}
+.border2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 17rem;
+    height: 15.8rem;
+    border-radius: 50px;
+    background-image: linear-gradient(36deg, rgb(255, 153, 0) 80%, rgb(0, 157, 255) 90%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: border2 2s infinite reverse;
+    transition: 0.2s;
+    box-shadow: rgb(0, 157, 255) 0px 0px 10px;
+}
+.box1{
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16.6rem;
+    border-radius: 47px;
+    background-image: linear-gradient(to right, rgb(38, 38, 38), rgb(27, 27, 27));
+    transition: 0.2s;
+}
+.box2{
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16.6rem;
+    border-radius: 47px;
+    background-image: linear-gradient(to right, rgb(38, 38, 38), rgb(27, 27, 27));
+    transition: 0.2s;
+}
+.border1:hover,
+.border1:active{
+    width: 20rem;
+    height: 18.5rem;
+    top: 3%;
+    box-shadow: #ff7300 0px 0px 30px;
+}
+.border1:hover .box1,
+.border1:active .box1{
+    background-image: linear-gradient(to top right, rgb(138, 64, 0), rgb(38, 38, 38) 25%, rgb(38, 38, 38) 75%, rgb(138, 64, 0));
+    width: 19.6rem;
+    height: 18.2rem;
+    font-size: 1.2rem;
+}
+.border1:hover button,
+.border1:active button{
+    font-size: 1.4rem;
+    padding: 0.8rem 1.3rem;
+}
+.border1:hover .dot1,
+.border1:active .dot1{
+    width: 50px;
+    height: 50px;
+}
+.border2:hover,
+.border2:active{
+    width: 20rem;
+    height: 18.5rem;
+    top: 47%;
+    box-shadow: rgb(0, 157, 255) 0px 0px 50px;
+}
+.border2:hover .box2,
+.border2:active .box2{
+    background-image: linear-gradient(to top right, rgb(0, 80, 130), rgb(38, 38, 38) 25%, rgb(38, 38, 38) 75%, rgb(0, 80, 130));
+    width: 19.6rem;
+    height: 18.2rem;
+    font-size: 1.2rem;
+}
+.border2:hover button,
+.border2:active button{
+    font-size: 1.4rem;
+    padding: 0.8rem 1.3rem;
+}
+.border2:hover .dot2,
+.border2:active .dot2{
+    width: 50px;
+    height: 50px;
+}
+.dot1{
+    margin: 5px auto;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #ff7300;
+    border-radius: 100%;
+    transition: 0.2s;
+}
+.dot2{
+    margin: 5px auto;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(0, 157, 255);
+    border-radius: 100%;
+    transition: 0.2s;
+}
+.border2 button{
+	padding: 0.5rem 1rem;
+	text-align: center;
+	margin: 1rem 1rem;
+	border-radius: 2.5rem;
+	font-weight: bold;
+    font-size: 18px;
+	border: 2px solid rgb(0, 157, 255);
+	color: #fff;
+	cursor: pointer;
+	position: sticky;
+	overflow: hidden;
+	background: linear-gradient(to left, rgba(250, 128, 114, 0) 50%, rgba(0, 157, 255, 0.5) 50%) right;
+    background-size: 200%;
+    transition: 0.2s;
+}
+button{
+	padding: 0.5rem 1rem;
+	text-align: center;
+	margin: 1rem 1rem;
+	border-radius: 2.5rem;
+	font-weight: bold;
+    font-size: 18px;
+	border: 2px solid #ff7300;
+	color: #fff;
+	cursor: pointer;
+	position: sticky;
+	overflow: hidden;
+	background: linear-gradient(to left, rgba(250, 128, 114, 0) 50%, #ff730080 50%) right;
+    background-size: 200%;
+    transition: 0.2s;
+}
+button:hover,
+button:active{
+	background-position: left;
+}
