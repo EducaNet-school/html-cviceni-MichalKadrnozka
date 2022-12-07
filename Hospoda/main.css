@@ -28,12 +28,16 @@ ul{
     font-size: 1.25vw;
     padding-left: 2vw;
 }
+.neco{
+    float: left;
+    width: 50%;
+}
 .img{
     display: inline;
     position: absolute;
     width: 40vw;
     height: auto;
-    top: 30%;
+    top: 27%;
     right: 10%;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 20px;
