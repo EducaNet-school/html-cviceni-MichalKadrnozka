@@ -21,3 +21,19 @@ function minimalni_cislo(){
     let cislo3 = document.getElementById("cislo3").value;
     document.getElementById("minimalni_cislo_vysledek").innerHTML = "Nejmenší číslo je " + Math.min(cislo1, cislo2, cislo3);
 }
+function maximalni_cislo(){
+    let cislo4 = document.getElementById("cislo4").value;
+    let cislo5 = document.getElementById("cislo5").value;
+    let cislo6 = document.getElementById("cislo6").value;
+    document.getElementById("maximalni_cislo_vysledek").innerHTML = "Největší číslo je " + Math.max(cislo4, cislo5, cislo6);
+}
+function faktorial(){
+    var n = document.getElementById("faktorial").value;
+    var faktorial = 1
+    var i = 1
+    while (i <= n){
+        faktorial = faktorial * i
+        i++
+    }
+    document.getElementById("faktorial_vysledek").innerHTML = "Faktoriál čísla " + n + " je " + faktorial
+}
