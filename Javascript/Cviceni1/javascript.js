@@ -35,5 +35,21 @@ function faktorial(){
         faktorial = faktorial * i
         i++
     }
-    document.getElementById("faktorial_vysledek").innerHTML = "Faktoriál čísla " + n + " je " + faktorial
+    document.getElementById("faktorial_vysledek").innerHTML = "Faktoriál čísla " + n + " je " + faktorial;
+}
+function soucet_rady(){
+    var n = document.getElementById("soucet_rady").value;
+    var soucet_rady = 0
+    var i = 1
+    while (i <= n){
+        soucet_rady = soucet_rady + i
+        i++
+    }
+    var vypocet = "";
+    for (var i = 1; i < n; i++) {
+        vypocet += i + " + ";
+    }
+    vypocet += n;
+    document.getElementById("soucet_rady_vypocet").innerHTML = "Výpočet řady je " + vypocet;
+    document.getElementById("soucet_rady_vysledek").innerHTML = "Součet řady je " + soucet_rady;
 }
