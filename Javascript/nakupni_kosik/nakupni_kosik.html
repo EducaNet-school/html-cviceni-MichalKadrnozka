@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript úkol 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        *{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-decoration-thickness: 1px;
+            font-size: 1.25rem;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .background{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to top right, rgb(62, 62, 62) 0%, rgb(59, 59, 59), rgb(33, 33, 33) 80%);
+        }
+        .container{
+            width: 60%;
+            margin: 0 auto;
+        }
+        input{
+            color: black;
+            margin: 10px;
+            border: 2px solid #ff7300;
+            border-radius: 10px;
+        }
+        h1{
+            padding: 50px 0;
+            font-size: 1.7rem;
+        }
+        button{
+            border: 2px solid #ff7300;
+            border-radius: 20px;
+            padding: 0 10px;
+            background-color: #ff73009c;
+            transition: 0.2s;
+        }
+        button:hover,
+        button:active{
+            background-color: #ff7300;
+        }
+        p{
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <script type="text/javascript">
+                var nakupni_seznam = new Array()
+                var i = 0
+                function nakup(){
+                    nakupni_seznam[i] = document.getElementById("polozka").value;
+                    document.getElementById("nakupni_seznam").innerHTML = nakupni_seznam;
+                    if(i < 5){
+                        document.getElementById("pocet_polozek").innerHTML = "To ještě unesu";
+                    } else if(i >= 5 && i <= 9){
+                        document.getElementById("pocet_polozek").innerHTML = "Pro takový nákup asi zajedu autem";
+                    } else if(i > 9){
+                        document.getElementById("pocet_polozek").innerHTML = "Toho je moc, to radši nakoupím přes internet";
+                    }
+                    document.getElementById("polozka").value = null
+                    i++
+                }
+            </script>
+            <h1>Nákupní seznam</h1>
+            <p>Přidání nákupní položky:</p>
+            <input type="text" id="polozka" placeholder="položka">
+            <button onclick="nakup()">Hotovo</button>
+            <p>Položky v seznamu:</p>
+            <p id="nakupni_seznam"></p>
+            <p id="pocet_polozek"></p>
+        </div>
+    </div>
+</body>
+</html>

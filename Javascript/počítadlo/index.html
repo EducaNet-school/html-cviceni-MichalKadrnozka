@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Počítadlo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        *{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-decoration-thickness: 1px;
+            font-size: 1.4rem;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        #background{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, red, rgb(62, 62, 62) 0%, rgb(33, 33, 33) 100%, green);
+        }
+        .container{
+            width: 60%;
+            margin: auto;
+        }
+        h1{
+            padding-top: 15vh;
+            margin-bottom: 20px;
+            font-size: 5rem;
+        }
+        #number{
+            font-size: 8rem;
+            margin-bottom: 60px;
+        }
+        button{
+            position: fixed;
+            left: 50%;
+            transform: translateX(-70%);
+            margin: 0 20px;
+            border: 2px solid #ff7300;
+            border-radius: 10px;
+            padding: 5px 15px;
+            background-color: #94949425;
+            transition: 0.2s;
+        }
+        button:hover{
+            font-size: 1.6rem;
+            border:  4px solid #ff7300;
+        }
+        button:active{
+            animation: anim1 0.05s;
+        }
+        @keyframes anim1{
+            0%{font-size: 1.6rem;}
+            50%{font-size: 1.8rem;}
+            100%{font-size: 1.6rem;}
+        }
+        #increase{
+            background-color: rgba(0, 128, 0, 0.6);
+            left: 67%;
+        }
+        #decrease{
+            background-color: rgba(255, 0, 0, 0.6);
+            left: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <div class="container">
+            <h1>Counter</h1>
+            <p id="number">0</p>
+            <button id="decrease" onclick="decrease()">Decrease</button>
+            <button onclick="reset()">Reset</button>
+            <button id="increase" onclick="increase()">Increase</button>
+            <script type="text/javascript">
+                var num = 0
+                var red_percentage = 0
+                var green_percentage = 100
+                var background_color = "linear-gradient(to right, red, rgb(62, 62, 62)" + red_percentage + "%, rgb(33, 33, 33) " + green_percentage + "%, green)";
+                function decrease(){
+                    num--
+                    document.getElementById("number").innerHTML = num
+                    if(num < 0){red_percentage++} else if(num > 0){green_percentage++} else{green_percentage = 100; red_percentage = 0}
+                    update_color()
+                    return num
+                }
+                function reset(){
+                    num = 0
+                    document.getElementById("number").innerHTML = num
+                    var background_anim = setInterval(function(){
+                        if (red_percentage > 0) {
+                            red_percentage--
+                            update_color()
+                        } else if (green_percentage < 100) {
+                            green_percentage++
+                            update_color()
+                        } else {
+                            clearInterval(background_anim)
+                        }
+                    }, 10)
+                    return num
+                }
+                function increase(){
+                    num++
+                    document.getElementById("number").innerHTML = num
+                    if(num > 0){green_percentage--} else if(num < 0){red_percentage--} else{green_percentage = 100; red_percentage = 0}
+                    update_color()
+                    return num
+                }
+                function update_color(){
+                    if(num < 0){
+                        document.getElementById("number").style.color = "red";
+                    } else if(num > 0){
+                        document.getElementById("number").style.color = "green";
+                    } else{
+                        document.getElementById("number").style.color = "white";
+                    }
+                    background_color = "linear-gradient(to right, red, rgb(62, 62, 62) " + red_percentage + "%, rgb(33, 33, 33) " + green_percentage + "%, green)";
+                    document.getElementById("background").style.background = background_color;
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

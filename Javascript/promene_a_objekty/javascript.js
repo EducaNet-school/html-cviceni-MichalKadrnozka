@@ -23,3 +23,10 @@ pole[0] = 45
 for(let i = 0; i < 10; i++){
     pole[i] = i + 1;
 }
+
+var person = {
+    name: "Nemichal",
+    age: 28,
+    city: "Brno",
+}
+console.log(person.name)
