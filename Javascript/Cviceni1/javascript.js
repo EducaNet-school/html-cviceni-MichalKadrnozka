@@ -27,8 +27,7 @@ function maximalni_cislo(){
     let cislo6 = document.getElementById("cislo6").value;
     document.getElementById("maximalni_cislo_vysledek").innerHTML = "Největší číslo je " + Math.max(cislo4, cislo5, cislo6);
 }
-function faktorial(){
-    var n = document.getElementById("faktorial").value;
+function faktorial(n = document.getElementById("faktorial").value){
     var faktorial = 1
     var i = 1
     while (i <= n){
@@ -52,4 +51,20 @@ function soucet_rady(){
     vypocet += n;
     document.getElementById("soucet_rady_vypocet").innerHTML = "Výpočet řady je " + vypocet;
     document.getElementById("soucet_rady_vysledek").innerHTML = "Součet řady je " + soucet_rady;
+}
+function fibonaciho_posloupnost(){
+    var n = document.getElementById("fibonaciho_posloupnost").value;
+    var fibonaciho_posloupnost = 1
+    var fp_prev = 1
+    var vypocet = "";
+    while (fp_prev <= n){
+        fp_prev = fibonaciho_posloupnost - fp_prev
+        fibonaciho_posloupnost = fibonaciho_posloupnost + fp_prev
+        console.log("posloupnost = ", fibonaciho_posloupnost)
+        console.log("prev_posloupnost = ", fp_prev)
+        vypocet += fibonaciho_posloupnost + " + "
+        console.log(vypocet)
+    }
+    document.getElementById("fibonaciho_posloupnost_vypocet").innerHTML = "Výpočet fibonaciho posloupnosti je " + vypocet;
+    document.getElementById("fibonaciho_posloupnost_vysledek").innerHTML = "Součet fibonaciho posloupnosti je " + fibonaciho_posloupnost;
 }
