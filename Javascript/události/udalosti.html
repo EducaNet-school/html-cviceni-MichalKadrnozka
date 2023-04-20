@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Události</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        *{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            text-decoration-thickness: 1px;
+            font-size: 1.5rem;
+        }
+        h1{
+            font-size: 2rem;
+            margin-bottom: 5vh;
+        }
+        h2{
+            margin-top: 5vh;
+        }
+        body{
+            background: linear-gradient(to top right, rgb(65, 65, 65), rgb(156, 156, 156));
+            height: 100vh
+        }
+        #form{
+            border-radius: 20px;
+        }
+        button{
+            display: block;
+            margin: 4vh auto;
+            font-size: 1.25rem;
+            padding: 10px;
+            border: 2px solid #ff7300;
+            border-radius: 20px;
+            transition: 0.15s;
+            background-color: #ff730029;
+        }
+        button:hover,
+        button:active{
+            background-color: #ff730080;
+            font-size: 1.4rem;
+            box-shadow: 0 0 10px #ff7300;
+        }
+    </style>
+</head>
+<body>
+    <h1>Henlo</h1>
+    <form id="form">
+        <h2>Jméno</h2>
+        <input type="text" name="username">
+        <h2>Heslo</h2>
+        <input type="password" name="password">
+        <button>Hotovo</button>
+    </form>
+    <p id="result"></p>
+    
+    <script type="text/javascript">
+        var result = document.getElementById("result")
+
+        document.getElementById("form").addEventListener("submit", 
+        function(event){
+            event.preventDefault();
+            alert("Formulář odeslán")
+        })
+        document.getElementById("form").addEventListener("keydown", 
+        function(event){
+            result.innerText = result.innerText + event.key.toUpperCase() + '-';
+        })
+
+    </script>
+</body>
+</html>

@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denní menu</title>
+    <title>Hospoda na Opileckém vrchu</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="background2">
+    <div class="background">
+        <nav>
+            <h1>Hospoda na Opileckém vrchu</h1>
+            <a href="index.html"><li>Domů</li></a>
+            <a href="DenniMenu.html"><li id="link2" class="active_li">Denní menu</li></a>
+            <a href="kontakt.html"><li id="link3">Kontakt</li></a>
+        </nav>
         <a id="zpet" href="index.html">Zpět</a>
         <div class="container">
-            <h2>Hospoda na Opileckém vrchu</h2>
-            <h1>Denní menu</h1>
             <div id="cards">
                 <h1 id="food_name">Vepřový řízek s bramborem</h1>
                 <img id="food_img" width="50%">
@@ -24,7 +28,7 @@
             </div>
             <table>
                 <tr>
-                    <td class="dny" colspan="2">Pondělí 28.11.</td>
+                    <td class="dny" id="dny1" colspan="2">Pondělí 28.11.</td>
                 </tr>
                 <tr>
                     <td class="jídla podnadpis">Jídlo</td>
@@ -123,11 +127,11 @@
                     <td>Vepřová panenka s bramborovými knedlíky<a class="right">129Kč</a></td>
                 </tr>
                 <tr>
-                    <td class="jídla">C</td>
-                    <td>Masový mix s hranolkami<a class="right">129Kč</a></td>
+                    <td class="jídla remove_border">C</td>
+                    <td class="remove_border">Masový mix s hranolkami<a class="right">129Kč</a></td>
                 </tr>
             </table>
-        </div>
+        </div><br><br><br>
     </div>
 </body>
 </html>

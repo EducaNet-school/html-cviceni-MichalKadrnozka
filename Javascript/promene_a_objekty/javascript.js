@@ -30,3 +30,18 @@ var person = {
     city: "Brno",
 }
 console.log(person.name)
+
+
+function createPerson(name, age, job){
+    var a = new Object();
+    a.name = name
+    a.age = age
+    a.job = job
+    a.sayName = function(){
+        alert(this.name);
+    };
+    return a
+}
+
+var person1 = createPerson("Někdo", 69, "borec")
+var person2 = createPerson("NěkdoDruhej", 96, "děda")

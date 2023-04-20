@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     font-weight: 100;
-    color: white;
+    color: black;
     text-align: justify;
     text-decoration-thickness: 1px;
 }
@@ -16,10 +16,14 @@ h1{
     font-size: 3vw;
     text-align: left;
     font-weight: 300;
-    padding-top: 10vh;
+    padding-top: 3vh;
     text-decoration: underline;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 2px;
     padding-bottom: 40px;
+}
+h2{
+    font-size: 2vw;
+    margin-top: 2vh;
 }
 p{
     padding-top: 2vh;
@@ -27,11 +31,10 @@ p{
 }
 ul{
     font-size: 1.25vw;
-    padding-left: 2vw;
+    padding-left: 1vw;
 }
-.neco{
-    float: left;
-    width: 50%;
+li{
+    cursor: pointer;
 }
 .img{
     display: inline;
@@ -40,8 +43,9 @@ ul{
     height: auto;
     top: 32%;
     right: 10%;
-    border: 2px solid rgb(185, 185, 185);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 video{
     position: relative;
@@ -55,20 +59,65 @@ video{
 }
 .background{
     width: 100%;
-    background: linear-gradient(to top right, rgb(62, 62, 62) 0%, rgb(85, 85, 85), rgb(20, 20, 20) 80%);
+    background: linear-gradient(to top right, rgb(255, 255, 255) 0%, rgb(206, 206, 206), rgb(228, 228, 228) 80%);
 }
 .background2{
     width: 100%;
-    background: linear-gradient(to top right, rgb(62, 62, 62) 0%, rgb(85, 85, 85), rgb(20, 20, 20) 80%);
+    height: 100vh;
+    background: linear-gradient(to top right, rgb(255, 255, 255) 0%, rgb(206, 206, 206), rgb(228, 228, 228) 80%);
 }
-.background2 h1{
-    text-align: center;
+::-webkit-scrollbar {
+    width: 1vw;
 }
-.background2 h2{
+  
+::-webkit-scrollbar-track {
+    background: #3c3c3c;
+    border-left: 2px solid #00000075;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 100px;
+}
+nav{
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    background-image: linear-gradient(to right, rgb(214, 214, 214), rgb(207, 207, 207));
+    border-bottom: 2px solid black;
+    box-shadow: 0 0 20px black;
+    z-index: 5;
+    padding-left: 3vw;
+}
+nav h1{
+    display: inline;
     position: absolute;
-    right: 0;
-    margin: 10px;
-    text-decoration: underline 1px;
+    padding-top: 1.5vh;
+}
+nav li{
+    display: inline;
+    position: absolute;
+    margin-left: 55vw;
+    margin-top: 2.5vh;
+    font-size: 2rem;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0);
+    transition: 0.15s;
+}
+.active_li{
+    transform: scale(1.3);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.374);
+}
+nav li:hover, nav li:active{
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0);
+    font-size: 2.2rem;
+}
+#link2{
+    margin-left: 67.5vw;
+}
+#link3{
+    margin-left: 85vw;
 }
 #zpet{
     position: absolute;
@@ -86,34 +135,42 @@ video{
     background-color: rgba(185, 185, 185, 0.6);
 }
 .container{
+    padding-top: 20vh;
     width: 60%;
     margin: auto;
 }
-.strong{
-    font-weight: 600;
-}
 table, th, td{
-    border: 2px solid rgb(185, 185, 185);
     border-collapse: collapse;
+}
+td{
+    border-bottom: 2px solid rgb(99, 99, 99, 0.5);
+}
+.remove_border{
+    border: none !important;
 }
 table{
     margin: 0 auto;
+    margin-top: 20vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 }
 td{
     padding: 10px 20vw 10px 10px;
-}
-table{
-    margin-top: 50px;
 }
 .jídla{
     padding-right: 10vw;
 }
 .dny{
+    position: relative;
     font-size: 20px;
     padding: 20px 20px 20px 20px;
     font-weight: 600;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 50px;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    background-color: #22222217;
+}
+#dny1{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .podnadpis{
     font-weight: 600;
@@ -123,165 +180,71 @@ table{
     position: absolute;
     right: 22.5%;
 }
+.right2{
+    position: absolute;
+    right: 53%;
+}
 
-.img1{
+.img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8, .img9, .img10{
     width: 100%;
     height: 100vh;
+    animation: img_open;
+    animation-duration: 0.5s;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    text-align: center;
+    color: black;
+    background-color: black;
+    font-size: 2vw;
+}
+.img1{
     background: url(assets/gulas.jfif);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img2{
-    width: 100%;
-    height: 100vh;
     background: url(assets/smazak.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img3{
-    width: 100%;
-    height: 100vh;
     background: url(assets/utopenec.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img4{
-    width: 100%;
-    height: 100vh;
     background: url(assets/biftek.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img5{
-    width: 100%;
-    height: 100vh;
     background: url(assets/svickova.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img6{
-    width: 100%;
-    height: 100vh;
     background: url(assets/veprove_medailonky.jfif);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img7{
-    width: 100%;
-    height: 100vh;
     background: url(assets/pstruh.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img8{
-    width: 100%;
-    height: 100vh;
     background: url(assets/kurizek.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: black;
-    font-size: 2vw;
 }
 .img9{
-    width: 100%;
-    height: 100vh;
     background: url(assets/pivo.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: left;
-    color: rgb(255, 255, 255);
-    font-size: 2vw;
 }
 .img10{
-    width: 100%;
-    height: 100vh;
     background: url(assets/nealko_pivo.jpg);
     background-size: cover;
-    animation: img_open;
-    animation-duration: 0.5s;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-size: 2vw;
 }
 @keyframes img_open{
     0%{
-        width: 0%;
-        height: 0vh;
+        transform: scale(0);
     }
     100%{
-        width: 100%;
-        height: 100vh;
+        transform: scale(1);
     }
 }
 .close_button{
@@ -294,18 +257,22 @@ table{
 .close_button_visible{
     display: inline;
     cursor: pointer;
-    color: rgb(255, 255, 255);
-    border-radius: 100px;
+    border-radius: 100%;
     padding: 0.15rem 0.4rem;
     position: fixed;
     user-select: none;
     top: 1%;
     right: 0.6%;
-    border: 0.1rem solid rgb(185, 185, 185);
+    border: 3px solid rgb(0, 0, 0);
     background: rgba(185, 185, 185, 0.5);
     z-index: 11;
     animation: button_fade_in;
     animation-duration: 0.5s;
+    transition: 0.15s;
+}
+.close_button_visible:hover, .close_button_visible:active{
+    background: rgba(185, 185, 185, 1);
+    box-shadow: 0 0 10px black;
 }
 @keyframes button_fade_in{
     0%{
@@ -317,10 +284,15 @@ table{
 }
 
 #cards{
-    background-color: rgb(47, 47, 47);
-    padding: 10px 30px 130px 30px;
-    border: 3px solid gray;
+    background-color: rgb(233, 233, 233);
+    padding: 0 2vw;
+    width: 95%;
+    height: 80vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 50px;
+}
+#cards h1{
+    padding-bottom: 10px;
 }
 #food{
     padding: 0;
@@ -334,11 +306,12 @@ table{
 }
 #prev, #next{
     position: absolute;
+    top: 80vh;
     padding: 0 28px;
     font-size: 5rem;
-    border: 3px solid gray;
+    border: 3px solid black;
     border-radius: 100%;
-    background-color: rgb(68, 68, 68);
+    background-color: rgb(186, 186, 186, 0.5);
     transition: 0.2s;
 }
 #next{
@@ -351,5 +324,61 @@ table{
 #next:hover,
 #prev:hover,
 #prev:active{
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(186, 186, 186, 1);
+    box-shadow: 0 0 10px black;
+    transform: scale(1.1);
+}
+
+#contact-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    top: 20%;
+    background-color: #fff;
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+  
+#contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #222;
+}
+  
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+  
+#contact-form textarea {
+    height: 20vh;
+    resize: vertical;
+}
+  
+#contact-form input[type="submit"] {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid grey;
+}
+  
+#contact-form input[type="submit"]:hover {
+    background-color: #222;
+    box-shadow: 0 0 5px black;
 }
