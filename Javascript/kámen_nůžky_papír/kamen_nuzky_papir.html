@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        *{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-decoration-thickness: 1px;
+            font-size: 1.5rem;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to top right, rgb(41, 41, 41), rgb(66, 58, 51));
+            overflow: hidden;
+        }
+        h1{
+            font-size: 2.5rem;
+        }
+        p{
+            display: inline-block;
+            font-size: 1.2rem;
+            margin: 5vh 2vw 0 2vw;
+        }
+        span{
+            font-size: 1.8rem;
+        }
+        #content{
+            margin: 5vh auto;
+            width: 60%;
+            padding: 1rem;
+            border: 5px solid #ff7300;
+            border-radius: 1rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+            position: relative;
+            overflow: hidden;
+            transition: 0.15s;
+        }
+        #content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, #ff730000 30%, #ff730033, #ff730000 70%);
+            z-index: -1;
+            animation: shift 5s ease-in-out infinite;
+        }
+        @keyframes shift {
+            0% {
+            transform: translateX(-100%);
+            }
+            100% {
+            transform: translateX(100%);
+            }
+        }
+        img{
+            width: 20%;
+            margin: 1rem;
+            border: 3px solid #ff7300;
+            border-radius: 0.5rem;
+            transition: 0.15s;
+            cursor: pointer;
+        }
+        img:hover, img:active{
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ff7300;
+        }
+        #result{
+            display: none;
+            position: absolute;
+            left: 25%;
+            top: 25%;
+            width: 50vw;
+            height: 50vh;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff7300;
+            border-radius: 1rem;
+            animation: result_popup 4s;
+        }
+        @keyframes result_popup{
+            0%{transform: scale(0);}
+            10%{transform: scale(1);}
+            90%{transform: scale(1);}
+            100%{transform: scale(0);}
+        }
+        #result h1{
+            display: inline;
+        }
+        #result img{
+            margin: 1rem 3rem;
+        }
+        #x{
+            position: absolute;
+            font-size: 8rem;
+            top: 33%;
+            transform: translate(-50%, -50%);
+        }
+        button{
+            display: block;
+            margin: 3vh auto;
+            border: 2px solid #ff7300;
+            border-radius: 20px;
+            padding: 5px 10px;
+            background-color: #ff730052;
+            transition: 0.15s;
+        }
+        button:hover,
+        button:active{
+            background-color: #ff730084;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ff7300;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Rock Paper Scissor</h1>
+        <p>Choose:</p>
+        <div id="rock_paper_scissors">
+            <img id="rock" src="rock.jpg" alt="The Rock">
+            <img id="paper" src="paper.jpg" alt="Paper">
+            <img id="scissor" src="scissors.jpg" alt="Scissors">
+        </div>
+        <p><span>Won: </span><span id="won-count">0</span></p>
+        <p><span>Lost: </span><span id="lost-count">0</span></p>
+        <button onclick="resetScore()">Reset score</button>
+    </div>
+    <div id="result">
+        <img id="player-choice" src="" alt="">
+        <h1 id="x">&times;</h1>
+        <img id="computer-choice" src="" alt=""><br>
+        <h1 id="won-lost"></h1>
+    </div>
+    
+    <script>
+        const rock = document.getElementById("rock");
+        const paper = document.getElementById("paper");
+        const scissors = document.getElementById("scissor");
+        const wonCount = document.getElementById("won-count");
+        const lostCount = document.getElementById("lost-count");
+        const resultDiv = document.getElementById("result");
+        const playerChoiceImg = document.getElementById("player-choice");
+        const computerChoiceImg = document.getElementById("computer-choice");
+        const wonLostText = document.getElementById("won-lost");
+      
+        let won = 0;
+        let lost = 0;
+        wonCount.innerText = won;
+        lostCount.innerText = lost;
+      
+        rock.addEventListener("click", function() { playGame("rock"); });
+        paper.addEventListener("click", function() { playGame("paper"); });
+        scissors.addEventListener("click", function() { playGame("scissors"); });
+        
+        function resetScore(){
+            won = 0;
+            lost = 0;
+            wonCount.innerText = won;
+            lostCount.innerText = lost;
+        }
+
+        function playGame(userChoice) {
+            const choices = ["rock", "paper", "scissors"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+        
+            let result;
+            if (userChoice === computerChoice) {
+                result = "Tie";
+            } else if ((userChoice === "rock" && computerChoice === "scissors") || 
+                        (userChoice === "paper" && computerChoice === "rock") || 
+                        (userChoice === "scissors" && computerChoice === "paper")) {
+                result = "You win!";
+                won++;
+                wonCount.innerText = won;
+            } else {
+                result = "Computer wins";
+                lost++;
+                lostCount.innerText = lost;
+            }
+        
+            playerChoiceImg.src = `${userChoice}.jpg`;
+            computerChoiceImg.src = `${computerChoice}.jpg`;
+            wonLostText.innerText = result;
+            resultDiv.style.display = "block";
+        
+            setTimeout(() => {
+                resultDiv.style.display = "none";
+                playerChoiceImg.src = "";
+                computerChoiceImg.src = "";
+            }, 4000);
+        }
+      </script>
+</body>
+</html>
